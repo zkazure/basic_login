@@ -19,7 +19,7 @@ func main() {
 			var id, password string
 			fmt.Println("please enter your id")
 			fmt.Scan(&id)
-			fmt.Println("please enter you password")
+			fmt.Println("please enter your password")
 			fmt.Scan(&password)
 
 			cli := server.GetClient(id)
@@ -29,7 +29,21 @@ func main() {
 				fmt.Println("Login failed")
 			}
 		case 1:
-			fmt.Println("still developing")
+			var id, password string
+			fmt.Println("please enter your id")
+			fmt.Scan(&id)
+			fmt.Println("please enter your password")
+			fmt.Scan(&password)
+			cli := server.AddClient(id)
+			for cli == nil {
+				fmt.Println("id already exists, please enter a different id")
+				fmt.Scan(&id)
+				fmt.Println("please enter your password")
+				fmt.Scan(&password)
+				cli = server.AddClient(id)
+			}
+			server.Clients[cli] = password
+			fmt.Printf("user %v signed up success\n", id)
 		case 2:
 			return
 		default:
