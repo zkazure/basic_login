@@ -4,7 +4,8 @@
 
 * Todo
 
-- [ ] combine with database
+- [X] combine with database
 - [ ] encrypt the password
+- [ ] polish project
 
   
